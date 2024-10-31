@@ -10,23 +10,20 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 public class ConsoleWindow extends JFrame {
-    private JTextArea textArea;
+    private static JTextArea textArea;
     private JTextField textField;
     private String outputFileName;
     private FileSearcher fileSearcher;
 
     public ConsoleWindow() {
-        // Настройка окна
-        setTitle("Java Console");
+        setTitle("File searcher");
         setSize(700, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Создаем текстовую область для вывода
         textArea = new JTextArea();
         textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
 
-        // Создаем текстовое поле для ввода команд
         textField = new JTextField();
         textField.addActionListener(new ActionListener() {
             @Override
@@ -35,28 +32,26 @@ public class ConsoleWindow extends JFrame {
                 textArea.append("> " + input + "\n");
                 textField.setText("");
 
-                // Здесь можно обработать введенную команду
                 processCommand(input);
             }
         });
-
-        // Добавляем элементы на окно
         add(scrollPane, BorderLayout.CENTER);
         add(textField, BorderLayout.SOUTH);
 
         fileSearcher = new FileSearcher();
     }
 
-    // Метод для обработки команд
+
     private void processCommand(String command) {
-        //textArea.append("Executing command: " + command + "\n");
         outputFileName = command;
-        List<File> resultFiles = fileSearcher.searchFiles(FileDirectory.getRootDirectory(), outputFileName);
-        // Выводим найденные файлы
-        for (File file : resultFiles) {
-            textArea.append("Найден файл: " + file + "\n");
-        }
-        //textArea.append("Найден файл: " + command + "\n");
+        Thread thread = new Thread(() -> {
+            fileSearcher.searchFiles(FileDirectory.getRootDirectory(), outputFileName);
+        });
+        thread.start();
+    }
+
+    public static void writeInWindowConsole(File file){
+        textArea.append("Найден файл: " + file + "\n");
     }
 
     public String getOutputFileName(){

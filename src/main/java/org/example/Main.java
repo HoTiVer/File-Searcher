@@ -13,22 +13,6 @@ public class Main {
         ConsoleWindow window = new ConsoleWindow();
         FileSearcher fileSearcher = new FileSearcher();
 
-        //FileDirectory fileDirectory = new FileDirectory();
-
-        //File rootDirectory = new File("C:\\");
-        //fileDirectory.getRootDirectory();
-
-
-        String searchTerm = "qt";
-
         window.startConsoleWindow();
-
-        //List<File> resultFiles = fileSearcher.searchFiles(rootDirectory, searchTerm);
-
-        // Выводим найденные файлы
-//        for (File file : resultFiles) {
-//            System.out.println("Найден файл: " + file.getAbsolutePath());
-//        }
-
     }
 }
