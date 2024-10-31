@@ -1,6 +1,5 @@
 package Window;
 
-import Directory.FileDirectory;
 import Searcher.FileSearcher;
 import java.util.List;
 import javax.swing.*;
@@ -14,6 +13,7 @@ public class ConsoleWindow extends JFrame {
     private JTextField textField;
     private String outputFileName;
     private FileSearcher fileSearcher;
+    File rootDirectory = new File("C:\\");
 
     public ConsoleWindow() {
         // Настройка окна
@@ -49,9 +49,10 @@ public class ConsoleWindow extends JFrame {
 
     // Метод для обработки команд
     private void processCommand(String command) {
+        // Пример вывода результата
         //textArea.append("Executing command: " + command + "\n");
         outputFileName = command;
-        List<File> resultFiles = fileSearcher.searchFiles(FileDirectory.getRootDirectory(), outputFileName);
+        List<File> resultFiles = fileSearcher.searchFiles(rootDirectory, outputFileName);
         // Выводим найденные файлы
         for (File file : resultFiles) {
             textArea.append("Найден файл: " + file + "\n");

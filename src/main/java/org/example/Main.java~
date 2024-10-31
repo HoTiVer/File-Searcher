@@ -13,10 +13,10 @@ public class Main {
         ConsoleWindow window = new ConsoleWindow();
         FileSearcher fileSearcher = new FileSearcher();
 
-        //FileDirectory fileDirectory = new FileDirectory();
+        FileDirectory fileDirectory = new FileDirectory();
 
-        //File rootDirectory = new File("C:\\");
-        //fileDirectory.getRootDirectory();
+        File rootDirectory = new File("C:\\");
+        fileDirectory.getRootDirectory();
 
 
         String searchTerm = "qt";

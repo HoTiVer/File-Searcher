@@ -3,13 +3,9 @@ package Directory;
 import java.io.File;
 
 public class FileDirectory {
-    final File rootDirectory;
+    final static File rootDirectory = new File("C:\\");
 
-    public FileDirectory(){
-        rootDirectory = new File("C:\\");
-    }
-
-    public File getRootDirectory() {
+    public static File getRootDirectory() {
         return rootDirectory;
     }
 }
