@@ -1,10 +1,7 @@
 package Searcher;
 
 import Window.ConsoleWindow;
-
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 public class FileSearcher implements Searcher{
     @Override

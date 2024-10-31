@@ -2,7 +2,6 @@ package Window;
 
 import Directory.FileDirectory;
 import Searcher.FileSearcher;
-import java.util.List;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -41,7 +40,6 @@ public class ConsoleWindow extends JFrame {
         fileSearcher = new FileSearcher();
     }
 
-
     private void processCommand(String command) {
         outputFileName = command;
         Thread thread = new Thread(() -> {
@@ -52,10 +50,6 @@ public class ConsoleWindow extends JFrame {
 
     public static void writeInWindowConsole(File file){
         textArea.append("Найден файл: " + file + "\n");
-    }
-
-    public String getOutputFileName(){
-        return outputFileName;
     }
 
     public void startConsoleWindow(){
