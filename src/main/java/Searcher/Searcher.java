@@ -4,5 +4,5 @@ import java.io.File;
 
 public interface Searcher {
     public void searchFiles(File directory, String searchTerm);
-    public void printInNewThread(File file);
+    public void printFilePath(File file);
 }

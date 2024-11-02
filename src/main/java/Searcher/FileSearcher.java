@@ -14,7 +14,7 @@ public class FileSearcher implements Searcher{
                         searchFiles(file, searchTerm);
                     } else {
                         if (file.getName().contains(searchTerm)) {
-                            printInNewThread(file);
+                            printFilePath(file);
                         }
                     }
                 }
@@ -23,10 +23,7 @@ public class FileSearcher implements Searcher{
     }
 
     @Override
-    public void printInNewThread(File file) {
-        Thread thread = new Thread(() -> {
-            ConsoleWindow.writeInWindowConsole(file);
-        });
-        thread.start();
+    public void printFilePath(File file) {
+        ConsoleWindow.writeInWindowConsole(file);
     }
 }
