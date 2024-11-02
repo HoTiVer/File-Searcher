@@ -14,10 +14,12 @@ public class ConsoleWindow extends JFrame {
     private String outputFileName;
     private FileSearcher fileSearcher;
 
+
     public ConsoleWindow() {
         setTitle("File searcher");
         setSize(700, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
 
         textArea = new JTextArea();
         textArea.setEditable(false);
@@ -34,6 +36,7 @@ public class ConsoleWindow extends JFrame {
                 processCommand(input);
             }
         });
+
         add(scrollPane, BorderLayout.CENTER);
         add(textField, BorderLayout.SOUTH);
 
